@@ -5,6 +5,10 @@ CObj::CObj()
 {
 }
 
+CObj::~CObj()
+{
+}
+
 CTexture * CObj::GetTexture() const
 {
 	return nullptr;

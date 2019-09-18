@@ -93,7 +93,9 @@ BOOL InitInstance( HINSTANCE hInstance, int nCmdShow )
 	RECT	rc = { 0, 0, WINX, WINY };
 	AdjustWindowRect( &rc, WS_OVERLAPPEDWINDOW, FALSE );
 
-	HWND hWnd = CreateWindowW( L"GPS_1", L"GPS_1", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, 0, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance, nullptr );
+	HWND hWnd = CreateWindowW( L"GPS_1", L"GPS_1", WS_OVERLAPPEDWINDOW, 
+		CW_USEDEFAULT, 0, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr,
+		hInstance, nullptr );
 
 	if ( !hWnd )
 	{
@@ -102,10 +104,11 @@ BOOL InitInstance( HINSTANCE hInstance, int nCmdShow )
 
 	// 윈도우의 클라이언트 영역을 원하는 크기로 설정하는 방법
 
-	SetWindowPos( hWnd, HWND_TOPMOST, 0, 0, rc.right - rc.left, rc.bottom - rc.top,
+	SetWindowPos( hWnd, HWND_TOPMOST,
+		0, 0, rc.right - rc.left, rc.bottom - rc.top,
 		SWP_NOMOVE | SWP_NOZORDER );
 
-	//m_hWnd = hWnd;
+	g_hWnd = hWnd;
 
 	ShowWindow( hWnd, SW_SHOW );
 	UpdateWindow( hWnd );

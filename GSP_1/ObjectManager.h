@@ -21,15 +21,18 @@ public:
 		
 		if (!pObj->Init())
 		{
-			SAFE_RELEASE(pObj);
+			delete pObj;
+			pObj = NULL;
 			return NULL;
 		}
 
-		pObj->SetTag(strName);
+		pObj->SetTag( strName );
 		m_ObjList.push_back( pObj );
 
 		return pObj;
 	}
+
+	//CObj* FindObject( const string& strName );
 
 	DECLARE_SINGLE(CObjectManager)
 };

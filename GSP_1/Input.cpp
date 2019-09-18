@@ -9,7 +9,6 @@ CInput::CInput()	:
 
 CInput::~CInput()
 {
-
 	unordered_map<string, PKEYINFO>::iterator	iter;
 	unordered_map<string, PKEYINFO>::iterator	iterEnd = m_mapKey.end();
 	for (iter = m_mapKey.begin(); iter != iterEnd; ++iter)

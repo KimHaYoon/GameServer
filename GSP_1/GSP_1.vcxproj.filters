@@ -25,6 +25,15 @@
     <Filter Include="03. Texture">
       <UniqueIdentifier>{f87097ea-20e0-471d-8541-5d684e6e29b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="04. Scene">
+      <UniqueIdentifier>{0814c3df-ccab-4670-a3d6-0a476bc6c6a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Object\00. Rect">
+      <UniqueIdentifier>{ed3de753-d0de-4dfd-8bb9-786df60ae664}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Object\01. Circle">
+      <UniqueIdentifier>{2bbd0939-31fb-4fc2-94c3-ee764fa12c39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -47,6 +56,15 @@
     </ClCompile>
     <ClCompile Include="ResourcesManager.cpp">
       <Filter>03. Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>02. Object\00. Rect</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>02. Object\01. Circle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +97,15 @@
     </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>03. Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>02. Object\00. Rect</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>02. Object\01. Circle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -9,7 +9,7 @@ protected:
 
 protected:
 	CObj();
-	virtual ~CObj() = 0;
+	virtual ~CObj();
 	
 protected:
 	class CScene*	m_pScene;	
@@ -18,6 +18,7 @@ protected:
 protected:
 	POS				m_tPos;
 	_SIZE			m_tSize;
+	string			m_strTag;
 
 public:
 	class CTexture* GetTexture()	const;
@@ -32,6 +33,11 @@ public:
 		return m_tSize;
 	}
 
+	string GetTag() const 
+	{
+		return m_strTag;
+	}
+
 public:
 	void SetPos(float x, float y)
 	{
@@ -41,6 +47,11 @@ public:
 	void SetSize(float x, float y)
 	{
 		m_tSize = _SIZE(x, y);
+	}
+
+	void SetTag( const string& strTag )
+	{
+		m_strTag = strTag;
 	}
 
 public:

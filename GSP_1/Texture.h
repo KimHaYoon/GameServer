@@ -5,7 +5,7 @@ class CTexture
 private:
 	friend class CResourcesManager;
 
-private:
+public:
 	CTexture();
 	~CTexture();
 

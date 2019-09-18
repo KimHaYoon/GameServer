@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Circle.cpp" />
     <ClCompile Include="GameFramework.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
@@ -125,10 +126,13 @@
       </ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="ObjectManager.cpp" />
+    <ClCompile Include="Rect.cpp" />
     <ClCompile Include="ResourcesManager.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Circle.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="GameFramework.h" />
     <ClInclude Include="Input.h" />
@@ -140,8 +144,10 @@
       </ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="ObjectManager.h" />
+    <ClInclude Include="Rect.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ResourcesManager.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="Texture.h" />
   </ItemGroup>

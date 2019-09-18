@@ -1,7 +1,7 @@
 #pragma once
 
-#define WINX 600
-#define WINY 600
+#define WINX 1000
+#define WINY 1000
 
 #define	SAFE_DELETE(p)	if(p)	{ delete p; p = NULL; }
 #define	SAFE_DELETE_ARRAY(p)	if(p)	{ delete[] p; p = NULL; }
@@ -28,3 +28,7 @@
 #define	DEFINITION_SINGLE(Type)	Type* Type::m_pInst	= NULL;
 #define	GET_SINGLE(Type)		Type::GetInst()
 #define	DESTROY_SINGLE(Type)	Type::DestroyInst()
+
+#define	KEYDOWN(key)	CInput::GetInst()->KeyDown(key)
+#define	KEYPUSH(key)	CInput::GetInst()->KeyPush(key)
+#define	KEYUP(key)		CInput::GetInst()->KeyUp(key)
