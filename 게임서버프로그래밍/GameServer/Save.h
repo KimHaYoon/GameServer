@@ -5,4 +5,4 @@
 
 using namespace std;
 
-void save(string FileName);
+void save(string FileName = "¼Ò½º.cpp");

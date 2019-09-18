@@ -74,3 +74,152 @@ int main()
 
 	return 0;
 }
+
+
+========================
+Wed Sep 18 15:36:42 2019
+========================
+
+#include <vector>
+#include <iostream>
+#include <chrono>
+#include <thread>
+#include <mutex>
+#include "Save.h"
+
+using namespace std;
+using namespace chrono;
+
+const int g_iMaxCount = 150000;
+vector<int> g_vecPrimes;
+int g_count = 0;
+mutex g_pl;
+mutex g_cl;
+
+bool IsPrimeNumber(int iNumber)
+{
+	if (iNumber == 1)
+		return false;
+
+	if ((iNumber % 2) == 0)
+		return false;
+
+	if (iNumber == 2)
+		return true;
+
+	for (int i = 3; i < iNumber - 1; i += 2)		 // 짝수만 검사
+	{
+		if ((iNumber % i) == 0)
+			return false;
+	}
+
+	return true;
+}
+
+void thread_func()
+{
+	while (true)
+	{
+		int num;
+		{
+			lock_guard<mutex> ll(g_cl);
+			num = g_count;
+			++g_count;
+
+			if (g_count > g_iMaxCount)
+				break;
+		}
+
+		if (IsPrimeNumber(num))
+		{
+			g_pl.lock();
+			g_vecPrimes.push_back(num);
+			g_pl.unlock();
+		}
+	}
+}
+
+int main()
+{
+	vector<thread> threads;
+	auto t0 = system_clock::now();
+	for (int i = 0; i < 4; ++i)
+		threads.emplace_back(thread_func);
+
+	for (auto& th : threads)
+		th.join();			// 이 스레드가 끝날 때까지 기다려라
+
+	cout << "Number of Prime less than " << g_iMaxCount << " 
+
+========================
+Wed Sep 18 15:54:28 2019
+========================
+
+// dead lock
+
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include "Save.h"
+
+using namespace std;
+
+int a, b;
+mutex m_a, m_b;
+
+void thread_ab()
+{
+	while (true)
+	{
+		lock_guard<mutex> al(m_a);
+		a++;
+
+		lock_guard<mutex> bl(m_b);
+		b++;
+		cout << "T1 Loop:" << endl;
+	}
+}
+
+void thread_ba()
+{
+	while (true)
+	{
+		lock_guard<mutex> bl(m_b);
+		b++;
+
+		lock_guard<mutex> al(m_a);
+		a++;
+		cout << "T2 Loop:" << endl;
+	}
+}
+
+int main()
+{
+	save();
+
+	thread t1{ thread_ab };
+	thread t2{ thread_ba };
+
+	t1.join();
+	t2.join();
+
+	return 0;
+}
+
+========================
+Wed Sep 18 16:01:25 2019
+========================
+
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include "Save.h"
+
+using namespace std;
+
+
+int main()
+{
+	save();
+	return 0;
+}
