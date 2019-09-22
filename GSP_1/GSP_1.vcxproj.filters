@@ -31,7 +31,7 @@
     <Filter Include="02. Object\00. Rect">
       <UniqueIdentifier>{ed3de753-d0de-4dfd-8bb9-786df60ae664}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02. Object\01. Circle">
+    <Filter Include="02. Object\01. 말">
       <UniqueIdentifier>{2bbd0939-31fb-4fc2-94c3-ee764fa12c39}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -64,7 +64,10 @@
       <Filter>02. Object\00. Rect</Filter>
     </ClCompile>
     <ClCompile Include="Circle.cpp">
-      <Filter>02. Object\01. Circle</Filter>
+      <Filter>02. Object\01. 말</Filter>
+    </ClCompile>
+    <ClCompile Include="King.cpp">
+      <Filter>02. Object\01. 말</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -105,7 +108,10 @@
       <Filter>02. Object\00. Rect</Filter>
     </ClInclude>
     <ClInclude Include="Circle.h">
-      <Filter>02. Object\01. Circle</Filter>
+      <Filter>02. Object\01. 말</Filter>
+    </ClInclude>
+    <ClInclude Include="King.h">
+      <Filter>02. Object\01. 말</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

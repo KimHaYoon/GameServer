@@ -1,5 +1,6 @@
 #include "Obj.h"
 #include "Texture.h"
+#include "ResourcesManager.h"
 
 CObj::CObj()
 {
@@ -20,6 +21,11 @@ void CObj::SetScene( CScene * pScene )
 
 void CObj::SetTexture( const string & strKey, const wchar_t * pFullPath, bool bColorKey, COLORREF dwColorKey )
 {
+	if ( pFullPath )
+		m_pTexture = GET_SINGLE( CResourcesManager )->LoadTexture( strKey, pFullPath, bColorKey, dwColorKey );
+
+	else
+		m_pTexture = GET_SINGLE( CResourcesManager )->FindTexture( strKey );
 }
 
 bool CObj::Init()

@@ -1,7 +1,7 @@
 #pragma once
 
-#define WINX 1000
-#define WINY 1000
+#define WINX 800
+#define WINY 800
 
 #define	SAFE_DELETE(p)	if(p)	{ delete p; p = NULL; }
 #define	SAFE_DELETE_ARRAY(p)	if(p)	{ delete[] p; p = NULL; }

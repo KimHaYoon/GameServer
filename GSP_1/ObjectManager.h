@@ -32,7 +32,7 @@ public:
 		return pObj;
 	}
 
-	//CObj* FindObject( const string& strName );
+	CObj* FindObject( const string& strName );
 
 	DECLARE_SINGLE(CObjectManager)
 };

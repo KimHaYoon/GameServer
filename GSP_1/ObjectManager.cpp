@@ -61,15 +61,15 @@ void CObjectManager::Render(HDC hDC)
 	}
 }
 
-//CObj * CObjectManager::FindObject( const string & strName )
-//{
-//	auto iter = find_if( m_ObjList.begin(), m_ObjList.end(), [&strName](CObj* a) {
-//		if ( a->GetTag() == strName )
-//			return a;
-//	} );
-//
-//	if ( iter == m_ObjList.end() )
-//		return NULL;
-//
-//	return *iter;
-//}
+CObj * CObjectManager::FindObject( const string & strName )
+{
+	auto iter = find_if( m_ObjList.begin(), m_ObjList.end(), [&strName](CObj* a) {
+		if ( a->GetTag() == strName )
+			return a;
+	} );
+
+	if ( iter == m_ObjList.end() )
+		return NULL;
+
+	return *iter;
+}

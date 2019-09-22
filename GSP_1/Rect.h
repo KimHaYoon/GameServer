@@ -4,6 +4,9 @@
 class CRect :
 	public CObj
 {
+private:
+	COLORREF m_dwColorKey;
+
 public:
 	CRect();
 	~CRect();
@@ -13,5 +16,8 @@ public:
 	virtual void Input();
 	virtual void Update();
 	virtual void Render( HDC hDC );
+
+public:
+	void SetColor( COLORREF dwColorKey );
 };
 

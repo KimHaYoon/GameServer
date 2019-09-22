@@ -2,7 +2,7 @@
 #include "ObjectManager.h"
 #include "Rect.h"
 #include "Obj.h"
-#include "Circle.h"
+#include "King.h"
 
 DEFINITION_SINGLE( CScene )
 
@@ -24,11 +24,37 @@ bool CScene::Init()
 			
 			CObj* pObj = GET_SINGLE( CObjectManager )->CreateObject<CRect>( strTag );
 			_SIZE tSize = pObj->GetSize();
-			pObj->SetPos(100 + j * tSize.x, 100 + i * tSize.y);
+			pObj->SetPos(j * tSize.x, i * tSize.y);
+
+			if ( 0 == i % 2 )
+			{
+				if ( 1 == ( j + i * 4 ) % 2 )
+				{
+					( (CRect* )pObj )->SetColor( RGB( 255, 205, 160 ) );
+				}
+
+				else
+				{
+					( (CRect* )pObj )->SetColor( RGB( 208, 139, 72) );
+				}
+			}
+
+			else
+			{
+				if ( 0 == ( j + i * 4 ) % 2 )
+				{
+					( (CRect* )pObj )->SetColor( RGB( 255, 205, 160 ) );
+				}
+				
+				else
+				{
+					( (CRect* )pObj )->SetColor( RGB( 208, 139, 72 ) );
+				}
+			}
 		}
 	}
 
-	CObj* pObj = GET_SINGLE( CObjectManager )->CreateObject<CCircle>( "Circle" );
+	CObj* pObj = GET_SINGLE( CObjectManager )->CreateObject<CKing>( "King" );
 
 
 	return true;

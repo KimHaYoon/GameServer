@@ -1,3 +1,0 @@
-﻿  GameFramework.cpp
-d:\01.kpu\4학년2학기\gameserver\gsp_1\gameframework.cpp(52): warning C4715: 'CGameFramework::Init': 모든 제어 경로에서 값을 반환하지는 않습니다.
-  GSP_1.vcxproj -> D:\01.KPU\4학년2학기\GameServer\GSP_1\Debug\GSP_1.exe
