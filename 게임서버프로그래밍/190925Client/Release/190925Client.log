@@ -1,0 +1,7 @@
+﻿  pch.cpp
+  190925Client.cpp
+c:\users\c02\desktop\gameserver2\게임서버프로그래밍\190925client\190925client.cpp(8): warning C4068: 알 수 없는 pragma입니다.
+  코드를 생성하고 있습니다.
+  All 45 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  코드를 생성했습니다.
+  190925Client.vcxproj -> C:\Users\C02\Desktop\GameServer2\게임서버프로그래밍\Release\190925Client.exe
