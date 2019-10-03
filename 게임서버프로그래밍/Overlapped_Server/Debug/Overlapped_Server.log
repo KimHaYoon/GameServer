@@ -1,0 +1,3 @@
+﻿  소스.cpp
+c:\users\c20\desktop\gameserver\게임서버프로그래밍\overlapped_server\소스.cpp(60): error C4996: 'WSASocketA': Use WSASocketW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winsock2.h(3416): note: 'WSASocketA' 선언을 참조하십시오.

@@ -1,0 +1,11 @@
+﻿  pch.cpp
+  190925Server.cpp
+c:\users\c20\desktop\gameserver\게임서버프로그래밍\190925server\190925server.cpp(7): warning C4068: 알 수 없는 pragma입니다.
+190925Server.obj : error LNK2019: __imp_accept 외부 기호(참조 위치: main 함수)에서 확인하지 못했습니다.
+190925Server.obj : error LNK2019: __imp_bind 외부 기호(참조 위치: main 함수)에서 확인하지 못했습니다.
+190925Server.obj : error LNK2019: __imp_htons 외부 기호(참조 위치: main 함수)에서 확인하지 못했습니다.
+190925Server.obj : error LNK2019: __imp_listen 외부 기호(참조 위치: main 함수)에서 확인하지 못했습니다.
+190925Server.obj : error LNK2019: __imp_recv 외부 기호(참조 위치: main 함수)에서 확인하지 못했습니다.
+190925Server.obj : error LNK2019: __imp_WSAStartup 외부 기호(참조 위치: main 함수)에서 확인하지 못했습니다.
+190925Server.obj : error LNK2019: __imp_WSASocketW 외부 기호(참조 위치: main 함수)에서 확인하지 못했습니다.
+C:\Users\C20\Desktop\GameServer\게임서버프로그래밍\x64\Debug\190925Server.exe : fatal error LNK1120: 7개의 확인할 수 없는 외부 참조입니다.
