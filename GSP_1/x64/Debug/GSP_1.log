@@ -1,0 +1,33 @@
+﻿  Circle.cpp
+d:\01.kpu\4학년2학기\겜서버\gameserver.git\trunk\gsp_1\circle.cpp(62): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  GameFramework.cpp
+  Input.cpp
+d:\01.kpu\4학년2학기\겜서버\gameserver.git\trunk\gsp_1\input.h(32): warning C4311: '형식 캐스트': 'const char *'에서 'DWORD'(으)로 포인터가 잘립니다.
+  d:\01.kpu\4학년2학기\겜서버\gameserver.git\trunk\gsp_1\input.h(44): note: 컴파일 중인 함수 템플릿 인스턴스화 'void CInput::CreateKey<char[9]>(const T (&))'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=char [9]
+          ]
+  d:\01.kpu\4학년2학기\겜서버\gameserver.git\trunk\gsp_1\input.cpp(27): note: 컴파일 중인 함수 템플릿 인스턴스화 'void CInput::CreateKey<int,char[9]>(const T &,const char (&)[9])'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=int
+          ]
+d:\01.kpu\4학년2학기\겜서버\gameserver.git\trunk\gsp_1\input.h(32): warning C4302: '형식 캐스트': 'const char *'에서 'DWORD'(으)로 잘립니다.
+  King.cpp
+  main.cpp
+  Obj.cpp
+d:\01.kpu\4학년2학기\겜서버\gameserver.git\trunk\gsp_1\obj.cpp(67): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\01.kpu\4학년2학기\겜서버\gameserver.git\trunk\gsp_1\obj.cpp(68): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\01.kpu\4학년2학기\겜서버\gameserver.git\trunk\gsp_1\obj.cpp(83): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\01.kpu\4학년2학기\겜서버\gameserver.git\trunk\gsp_1\obj.cpp(84): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ObjectManager.cpp
+  Rect.cpp
+d:\01.kpu\4학년2학기\겜서버\gameserver.git\trunk\gsp_1\rect.cpp(38): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ResourcesManager.cpp
+  Scene.cpp
+  Texture.cpp
+  코드를 생성하고 있습니다...
+d:\01.kpu\4학년2학기\겜서버\gameserver.git\trunk\gsp_1\objectmanager.cpp(69): warning C4715: '<lambda_3d917df33898cbf9fd7bcbdc4590fd3e>::operator()': 모든 제어 경로에서 값을 반환하지는 않습니다.
+d:\01.kpu\4학년2학기\겜서버\gameserver.git\trunk\gsp_1\gameframework.cpp(52): warning C4715: 'CGameFramework::Init': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  GSP_1.vcxproj -> D:\01.KPU\4학년2학기\겜서버\GameServer.git\trunk\GSP_1\x64\Debug\GSP_1.exe
