@@ -54,11 +54,15 @@ bool CScene::Init()
 			}
 		}
 	}
-
-	CObj* pObj = GET_SINGLE( CObjectManager )->CreateObject<CKing>( "King" );
-	POS tPos = GET_SINGLE( CNetwork )->GetPlayerStartPos();
-	pObj->SetPos( tPos.x, tPos.y );
-
-
 	return true;
+}
+
+void CScene::AddKing( int iID, POS tPos )
+{
+	CObj* pObj = GET_SINGLE( CObjectManager )->FindObject( "King" + to_string( iID ) );
+	
+	if(!pObj )
+		pObj = GET_SINGLE( CObjectManager )->CreateObject<CKing>( "King" + to_string(iID) );
+
+	pObj->SetPos( tPos.x, tPos.y );
 }

@@ -9,6 +9,8 @@
 #define WINX 800
 #define WINY 800
 
+#define MAX_BUFFER	 1024
+
 #define	SAFE_DELETE(p)	if(p)	{ delete p; p = NULL; }
 #define	SAFE_DELETE_ARRAY(p)	if(p)	{ delete[] p; p = NULL; }
 #define	SAFE_RELEASE(p)	if(p)	{ p->Release(); p = NULL; }

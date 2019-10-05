@@ -60,4 +60,12 @@ void CKing::Update()
 void CKing::Render( HDC hDC )
 {
 	CObj::Render( hDC );
+	
+	string strMyKing = "King" + to_string( GET_SINGLE( CNetwork )->GetMyID() );
+
+	if ( m_strTag == strMyKing )
+		TextOutA( hDC, m_tPos.x + 15, m_tPos.y, "Me", 2);
+
+	else
+		TextOutA( hDC, m_tPos.x + 2, m_tPos.y, m_strTag.c_str(), m_strTag.size() );
 }

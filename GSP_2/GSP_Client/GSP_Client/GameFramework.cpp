@@ -14,6 +14,14 @@ CGameFramework::CGameFramework() :
 	_CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
 	//_CrtSetBreakAlloc(281);
 	m_bServer = false;
+
+#ifdef _DEBUG
+	#ifdef UNICODE
+	#pragma comment(linker, "/entry:wWinMainCRTStartup /subsystem:console")
+	#else
+	#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
+	#endif
+#endif
 }
 
 
@@ -25,6 +33,8 @@ CGameFramework::~CGameFramework()
 	GET_SINGLE( CScene )->DestroyInst();
 	GET_SINGLE( CNetwork )->DestroyInst();
 	ReleaseDC( m_hWnd, m_hDC );
+
+	FreeConsole();
 }
 
 void CGameFramework::Logic()

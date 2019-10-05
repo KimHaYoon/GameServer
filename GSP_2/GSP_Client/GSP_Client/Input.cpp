@@ -34,6 +34,9 @@ bool CInput::Init(HWND hWnd)
 
 void CInput::Update()
 {
+	if ( !GetWindowActive() )
+		return;
+
 	unordered_map<string, PKEYINFO>::iterator	iter;
 	unordered_map<string, PKEYINFO>::iterator	iterEnd = m_mapKey.end();
 

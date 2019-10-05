@@ -9,6 +9,7 @@ HINSTANCE hInst;                                // 현재 인스턴스입니다.
 HWND g_hWnd;
 string g_strServerIP;
 CGameFramework g_GameFramework;
+bool	g_bActive;
 
 // 이 코드 모듈에 들어 있는 함수의 정방향 선언입니다.
 ATOM                MyRegisterClass( HINSTANCE hInstance );
@@ -130,6 +131,12 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam 
 	PAINTSTRUCT ps;
 	switch ( message )
 	{
+	case WM_ACTIVATE:
+		if ( wParam == WA_INACTIVE )
+			g_bActive = false;
+		else
+			g_bActive = true;
+		break;
 	case WM_CHAR:
 	{
 		if ( VK_RETURN == wParam )
@@ -176,4 +183,9 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam 
 		return DefWindowProc( hWnd, message, wParam, lParam );
 	}
 	return 0;
+}
+
+bool GetWindowActive()
+{
+	return g_bActive;
 }
