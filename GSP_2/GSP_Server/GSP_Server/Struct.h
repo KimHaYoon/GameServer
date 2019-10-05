@@ -17,4 +17,43 @@ typedef struct _tagPos
 		y( _y )
 	{
 	}
+
+	void operator +=( const _tagPos& pos )
+	{
+		x += pos.x;
+		y += pos.y;
+	}
 }POS, _SIZE;
+
+
+typedef struct _tagSocketInfo
+{
+	WSAOVERLAPPED	overlapped;
+	WSABUF						dataBuffer;
+	SOCKET						socket;
+	char							messageBuffer[MAX_BUFFER];
+}SOCKETINFO;
+
+typedef struct _tagPlayerInfo
+{
+	int			iID;
+	bool		bLogin;
+	POS			tPos;
+
+	_tagPlayerInfo( int iID, bool bLogin, POS tPos ) : 
+		iID{iID }, bLogin{bLogin },	tPos{tPos }
+	{
+		
+	}
+
+	_tagPlayerInfo()
+	{
+		bLogin = false;
+	}
+}PLAYERINFO;
+
+typedef struct _tagKey
+{
+	int			iID;
+	char		cKey;
+}KEY;
