@@ -9,7 +9,8 @@ int FindClientID( const SOCKET& socket );
 
 void CALLBACK recv_callback( DWORD Error, DWORD dataBytes, LPWSAOVERLAPPED overlapped, DWORD lnFlags );
 void CALLBACK send_callback( DWORD Error, DWORD dataBytes, LPWSAOVERLAPPED overlapped, DWORD lnFlags );
-
+
+
 int main()
 {
 	WSADATA WSAData;
