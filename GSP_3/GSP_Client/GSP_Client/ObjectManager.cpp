@@ -31,9 +31,16 @@ void CObjectManager::Input()
 	list<CObj*>::iterator	iter;
 	list<CObj*>::iterator	iterEnd = m_ObjList.end();
 
-	for ( iter = m_ObjList.begin(); iter != iterEnd; ++iter )
+	for ( iter = m_ObjList.begin(); iter != iterEnd;)
 	{
+		if (!(*iter)->GetAlive())
+		{
+			SAFE_DELETE(*iter);
+			continue;
+		}
+
 		( *iter )->Input( );
+		++iter;
 	}
 }
 
@@ -44,6 +51,12 @@ void CObjectManager::Update()
 
 	for ( iter = m_ObjList.begin(); iter != iterEnd;)
 	{
+		if (!(*iter)->GetAlive())
+		{
+			SAFE_DELETE(*iter);
+			continue;
+		}
+
 		( *iter )->Update( );
 		++iter;
 	}
@@ -56,6 +69,11 @@ void CObjectManager::Render(HDC hDC)
 
 	for ( iter = m_ObjList.begin(); iter != iterEnd;)
 	{
+		if (!(*iter)->GetAlive())
+		{
+			SAFE_DELETE(*iter);
+			continue;
+		}
 		( *iter )->Render( hDC );
 		++iter;
 	}

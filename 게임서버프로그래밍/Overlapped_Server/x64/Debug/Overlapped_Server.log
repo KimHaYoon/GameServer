@@ -1,1 +1,6 @@
-﻿  Overlapped_Server.vcxproj -> D:\01.KPU\4학년2학기\겜서버\GameServer.git\trunk\게임서버프로그래밍\x64\Debug\Overlapped_Server.exe
+﻿  소스.cpp
+d:\gsp\gameserver\게임서버프로그래밍\overlapped_server\소스.cpp(24): warning C4311: 'reinterpret_cast': 'HANDLE'에서 'int'(으)로 포인터가 잘립니다.
+d:\gsp\gameserver\게임서버프로그래밍\overlapped_server\소스.cpp(24): warning C4302: 'reinterpret_cast': 'HANDLE'에서 'int'(으)로 잘립니다.
+d:\gsp\gameserver\게임서버프로그래밍\overlapped_server\소스.cpp(42): warning C4311: 'reinterpret_cast': 'HANDLE'에서 'int'(으)로 포인터가 잘립니다.
+d:\gsp\gameserver\게임서버프로그래밍\overlapped_server\소스.cpp(42): warning C4302: 'reinterpret_cast': 'HANDLE'에서 'int'(으)로 잘립니다.
+  Overlapped_Server.vcxproj -> D:\gsp\GameServer\게임서버프로그래밍\x64\Debug\Overlapped_Server.exe

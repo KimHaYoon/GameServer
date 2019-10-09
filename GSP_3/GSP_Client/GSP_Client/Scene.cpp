@@ -66,3 +66,11 @@ void CScene::AddKing( int iID, POS tPos )
 
 	pObj->SetPos( tPos.x, tPos.y );
 }
+
+void CScene::DeleteKing(int iID)
+{
+	CObj* pObj = GET_SINGLE(CObjectManager)->FindObject("King" + to_string(iID));
+
+	if(pObj)
+		pObj->Die();
+}

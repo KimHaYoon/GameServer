@@ -59,8 +59,11 @@ void CNetwork::Update()
 
 	for ( int i = 0; i < 10; ++i )
 	{
-		if ( tPlayers[i].bLogin)
-			GET_SINGLE( CScene )->AddKing( tPlayers[i].iID, tPlayers[i].tPos );
+		if (tPlayers[i].bLogin)
+			GET_SINGLE(CScene)->AddKing(tPlayers[i].iID, tPlayers[i].tPos);
+
+		else
+			GET_SINGLE(CScene)->DeleteKing(tPlayers[i].iID);
 	}
 }
 

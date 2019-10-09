@@ -4,6 +4,7 @@
 
 CObj::CObj()
 {
+	m_bAlive = true;
 }
 
 CObj::~CObj()

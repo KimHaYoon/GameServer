@@ -8,6 +8,8 @@ public:
 
 public:
 	void AddKing(int iID, POS tPos);
+	void DeleteKing(int iID);
+
 	DECLARE_SINGLE( CScene )
 };
 

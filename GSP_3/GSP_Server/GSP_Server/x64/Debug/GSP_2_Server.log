@@ -1,0 +1,7 @@
+﻿  main.cpp
+d:\gsp\gameserver\gsp_3\gsp_server\gsp_server\main.cpp(30): warning C4101: 'flags' :참조되지 않은 지역 변수입니다.
+d:\gsp\gameserver\gsp_3\gsp_server\gsp_server\main.cpp(88): warning C4311: 'reinterpret_cast': 'HANDLE'에서 'int'(으)로 포인터가 잘립니다.
+d:\gsp\gameserver\gsp_3\gsp_server\gsp_server\main.cpp(88): warning C4302: 'reinterpret_cast': 'HANDLE'에서 'int'(으)로 잘립니다.
+d:\gsp\gameserver\gsp_3\gsp_server\gsp_server\main.cpp(119): warning C4311: 'reinterpret_cast': 'HANDLE'에서 'int'(으)로 포인터가 잘립니다.
+d:\gsp\gameserver\gsp_3\gsp_server\gsp_server\main.cpp(119): warning C4302: 'reinterpret_cast': 'HANDLE'에서 'int'(으)로 잘립니다.
+  GSP_2_Server.vcxproj -> D:\gsp\GameServer\GSP_3\GSP_Server\x64\Debug\GSP_Server.exe
