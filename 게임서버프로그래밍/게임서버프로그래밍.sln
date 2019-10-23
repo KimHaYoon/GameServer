@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Overlapped_Client", "Overla
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IOCPEX", "IOCPEX\IOCPEX.vcxproj", "{8320CF86-DE48-45A7-A50E-67E563BD1516}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "시야처리 실습", "시야처리 실습\시야처리 실습.vcxproj", "{4658E1AF-E813-4C54-B904-7B9339F60A28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -75,6 +77,14 @@ Global
 		{8320CF86-DE48-45A7-A50E-67E563BD1516}.Release|x64.Build.0 = Release|x64
 		{8320CF86-DE48-45A7-A50E-67E563BD1516}.Release|x86.ActiveCfg = Release|Win32
 		{8320CF86-DE48-45A7-A50E-67E563BD1516}.Release|x86.Build.0 = Release|Win32
+		{4658E1AF-E813-4C54-B904-7B9339F60A28}.Debug|x64.ActiveCfg = Debug|x64
+		{4658E1AF-E813-4C54-B904-7B9339F60A28}.Debug|x64.Build.0 = Debug|x64
+		{4658E1AF-E813-4C54-B904-7B9339F60A28}.Debug|x86.ActiveCfg = Debug|Win32
+		{4658E1AF-E813-4C54-B904-7B9339F60A28}.Debug|x86.Build.0 = Debug|Win32
+		{4658E1AF-E813-4C54-B904-7B9339F60A28}.Release|x64.ActiveCfg = Release|x64
+		{4658E1AF-E813-4C54-B904-7B9339F60A28}.Release|x64.Build.0 = Release|x64
+		{4658E1AF-E813-4C54-B904-7B9339F60A28}.Release|x86.ActiveCfg = Release|Win32
+		{4658E1AF-E813-4C54-B904-7B9339F60A28}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
