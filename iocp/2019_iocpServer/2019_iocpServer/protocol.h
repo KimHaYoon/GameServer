@@ -2,8 +2,8 @@
 
 constexpr int MAX_STR_LEN = 50;
 
-#define WORLD_WIDTH		8
-#define WORLD_HEIGHT	8
+#define WORLD_WIDTH		800
+#define WORLD_HEIGHT	800
 
 #define SERVER_PORT		3500
 

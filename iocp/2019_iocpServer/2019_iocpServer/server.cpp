@@ -10,7 +10,7 @@ using namespace std;
 #include "protocol.h"
 
 #define MAX_BUFFER        1024
-constexpr auto VIEW_RANGE = 3;
+constexpr auto VIEW_RANGE = 4;
 
 
 struct OVER_EX {

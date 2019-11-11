@@ -23,8 +23,8 @@ using namespace std;
 
 sf::TcpSocket socket;
 
-constexpr auto SCREEN_WIDTH = 9;
-constexpr auto SCREEN_HEIGHT = 9;
+constexpr auto SCREEN_WIDTH = 11;
+constexpr auto SCREEN_HEIGHT = 11;
 
 constexpr auto TILE_WIDTH = 65;
 constexpr auto WINDOW_WIDTH = TILE_WIDTH * SCREEN_WIDTH + 10;   // size of window
@@ -100,7 +100,7 @@ void client_initialize()
 	white_tile = OBJECT{ *board, 5, 5, TILE_WIDTH, TILE_WIDTH };
 	black_tile = OBJECT{ *board, 69, 5, TILE_WIDTH, TILE_WIDTH };
 	avatar = OBJECT{ *pieces, 128, 0, 64, 64 };
-	avatar.move( 4, 4 );
+	avatar.move( 3, 3 );
 
 	for ( auto& pl : players )
 	{
