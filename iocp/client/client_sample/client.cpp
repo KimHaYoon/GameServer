@@ -231,7 +231,9 @@ void client_main()
 			int tile_x = i + g_left_x;
 			int tile_y = j + g_top_y;
 			if ( ( tile_x < 0 ) || ( tile_y < 0 ) ) continue;
-			if ( ( ( tile_x + tile_y ) % 6 ) < 2 ) {
+			//if ( ( ( tile_x + tile_y ) % 6 ) < 2 ) 
+			if((tile_x % 11) == 0  || (tile_y % 11) == 0)
+			{
 				white_tile.a_move( TILE_WIDTH * i + 7, TILE_WIDTH * j + 7 );
 				white_tile.a_draw();
 			}

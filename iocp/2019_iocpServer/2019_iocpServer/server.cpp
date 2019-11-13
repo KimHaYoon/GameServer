@@ -154,10 +154,10 @@ void ProcessPacket( int id, void* buff )
 	}
 	clients[id]->x = x;
 	clients[id]->y = y;
-	//lock_guard<mutex> lg1{ clients[id]->near_lock };
 
 	set<int> temp = clients[id]->near_id;
-	for ( auto& cl : temp ) {	// 기존에 시야리스트에 있던 플레이어들 검사
+	for ( auto& cl : temp )
+	{
 		if ( is_near( cl, id ) == true ) {
 			send_pos_packet( cl, id );
 		}
