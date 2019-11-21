@@ -51,6 +51,23 @@ void error_display( const char *msg, int err_no )
 	LocalFree( lpMsgBuf );
 }
 
+void Create_NPC()
+{
+	for ( int npc_id = NPC_ID_START; npc_id < NUM_NPC + NPC_ID_START; ++npc_id )
+	{
+		clients[npc_id] = new SOCKETINFO;
+		clients[npc_id]->id = npc_id;
+		clients[npc_id]->x = rand() % 30;
+		clients[npc_id]->y = rand() % 30;
+		clients[npc_id]->socket = -1;
+	}
+}
+
+bool is_NPC( int id )
+{
+	return id >= NPC_ID_START;
+}
+
 
 bool is_near( int a, int b )
 {
@@ -68,7 +85,15 @@ void send_packet( int id, void* buff )
 	memcpy( send_over->net_buf, packet, packet_size );
 	send_over->wsabuf[0].buf = send_over->net_buf;
 	send_over->wsabuf[0].len = packet_size;
-	WSASend( clients[id]->socket, send_over->wsabuf, 1, 0, 0, &send_over->over, 0 );
+	int ret = WSASend( clients[id]->socket, send_over->wsabuf, 1, 0, 0, &send_over->over, 0 );
+	if ( 0 != ret )
+	{
+		int err_no = WSAGetLastError();
+		if ( WSA_IO_PENDING != err_no )
+		{
+			error_display( "WSARecv Error :", err_no );
+		}
+	}
 }
 
 void send_login_ok_packet( int id )
@@ -158,6 +183,9 @@ void ProcessPacket( int id, void* buff )
 	set<int> temp = clients[id]->near_id;
 	for ( auto& cl : temp )
 	{
+		if ( is_NPC( cl ) )
+			continue;
+
 		if ( is_near( cl, id ) == true ) {
 			send_pos_packet( cl, id );
 		}
@@ -168,6 +196,9 @@ void ProcessPacket( int id, void* buff )
 		}
 	}
 	for ( auto& cl : clients ) {	// 모든 플레이어들 대상으로 시야 범위 체크
+		if ( is_NPC( cl.first ) )
+			continue;
+
 		if ( is_near( cl.first, id ) == true ) { // 시야범위 들어온 플레이어들 중
 			if ( is_near_id( id, cl.first ) == false ) { // 시야리스트에 없는 플레이어 추가
 				if ( cl.first != id ) {
@@ -219,9 +250,75 @@ void do_worker()
 	}
 }
 
+void do_ai()
+{
+	for ( auto& npc : clients )
+	{
+		if ( !is_NPC( npc.second->id ) )
+		{
+			continue;
+		}
+		int x = npc.second->x;
+		int y = npc.second->y;
+
+		set<int> old_view_list;
+		for ( auto& obj : clients )
+		{
+			if ( is_near( npc.second->id, obj.second->id ) )
+			{
+				old_view_list.insert( obj.second->id );
+			}
+		}
+
+		switch ( rand() % 4 )
+		{
+		case 0:
+			if(y > 0 )
+				--y;
+			break;
+		case 1:
+			if(y < WORLD_HEIGHT - 1 )
+				++y;
+			break;
+		case 2:
+			if ( x > 0 )
+				--x;
+			break;
+		case 3:
+			if( x < WORLD_WIDTH - 1 )
+				++x;
+			break;
+		default:
+			break;
+		}
+
+		npc.second->x = x;
+		npc.second->y = y;
+		set<int> new_view_list;
+		for ( auto& obj : clients )
+		{
+			if ( is_near( npc.second->id, obj.second->id ) )
+			{
+				old_view_list.insert( obj.second->id );
+			}
+		}
+		for ( auto& pc : clients )
+		{
+			if ( is_NPC( pc.second->id ) )
+				continue;
+			if ( !is_near( pc.second->id, npc.second->id ) )
+				continue;
+			send_pos_packet( pc.second->id, npc.second->id );
+		}
+	}
+}
 int main()
 {
 	wcout.imbue( std::locale( "korean" ) );
+
+	Create_NPC();
+
+
 	WSADATA WSAData;
 	WSAStartup( MAKEWORD( 2, 2 ), &WSAData );
 	SOCKET listenSocket = WSASocket( AF_INET, SOCK_STREAM, 0, NULL, 0, WSA_FLAG_OVERLAPPED );
@@ -242,6 +339,8 @@ int main()
 	thread worker_thread{ do_worker };
 	thread worker_thread2{ do_worker };
 	thread worker_thread3{ do_worker };
+	thread ai_thead { do_ai };
+
 	while ( true ) {
 		clientSocket = accept( listenSocket, ( struct sockaddr * )&clientAddr, &addrLen );
 		int user_id = new_user_id++;
@@ -260,6 +359,9 @@ int main()
 		for ( auto& cl : clients ) {
 			int other_player = cl.first;
 
+			if ( is_NPC( user_id ) || is_NPC( other_player ) )
+				continue;
+
 			if ( true == is_near( other_player, user_id ) ) {
 				send_put_player_packet( other_player, user_id );
 
@@ -277,6 +379,7 @@ int main()
 				error_display( "WSARecv Error :", err_no );
 		}
 	}
+	ai_thead.join();
 	worker_thread.join();
 	closesocket( listenSocket );
 	WSACleanup();

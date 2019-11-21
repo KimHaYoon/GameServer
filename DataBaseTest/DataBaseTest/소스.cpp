@@ -105,7 +105,8 @@ int main() {
 	SQLRETURN retcode;
 	SQLINTEGER nID, nLEVEL;
 	SQLWCHAR szName[NAME_LEN];
-	SQLLEN cbName = 0, cbID = 0, cbLEVEL= 0;
+	SQLLEN cbName = 0, cbID = 0, cbLEVEL = 0;
+
 
 	// Allocate environment handle  
 	retcode = SQLAllocHandle( SQL_HANDLE_ENV, SQL_NULL_HANDLE, &henv );
@@ -123,20 +124,20 @@ int main() {
 				SQLSetConnectAttr( hdbc, SQL_LOGIN_TIMEOUT, ( SQLPOINTER )5, 0 );
 
 				// Connect to data source  
-				retcode = SQLConnect( hdbc, ( SQLWCHAR* )L"TEST", SQL_NTS, ( SQLWCHAR* )NULL, 0, NULL, 0 );
+				retcode = SQLConnect( hdbc, ( SQLWCHAR* )L"Test", SQL_NTS, ( SQLWCHAR* )NULL, 0, NULL, 0 );
 
 				// Allocate statement handle  
 				if ( retcode == SQL_SUCCESS || retcode == SQL_SUCCESS_WITH_INFO ) {
 					retcode = SQLAllocHandle( SQL_HANDLE_STMT, hdbc, &hstmt );
 
-					retcode = SQLExecDirect( hstmt, ( SQLWCHAR * )L"SELECT c_name, n_id, c_LEVEL FROM user_data ORDER BY 2, 1, 3", SQL_NTS );
+					retcode = SQLExecDirect( hstmt, ( SQLWCHAR * )L"SELECT Name, ID, [Level] FROM user_data ORDER BY 2, 1, 3", SQL_NTS );
 
 					if ( retcode == SQL_SUCCESS || retcode == SQL_SUCCESS_WITH_INFO ) {
 
 						// Bind columns 1, 2, and 3  
-						retcode = SQLBindCol( hstmt, 1, SQL_UNICODE_CHAR, szName, NAME_LEN, &cbName);			// 컬럼 하나하나를 바인드해서 넣어주라
-						retcode = SQLBindCol( hstmt, 2, SQL_C_LONG, &nID, 10, &cbID);
-						retcode = SQLBindCol( hstmt, 3, SQL_C_LONG, &nLEVEL, 10, &cbLEVEL);
+						retcode = SQLBindCol( hstmt, 1, SQL_UNICODE_CHAR, szName, NAME_LEN, &cbName );			// 컬럼 하나하나를 바인드해서 넣어주라
+						retcode = SQLBindCol( hstmt, 2, SQL_C_LONG, &nID, 10, &cbID );
+						retcode = SQLBindCol( hstmt, 3, SQL_C_LONG, &nLEVEL, 10, &cbLEVEL );
 
 						// Fetch and print each row of data. On an error, display a message and exit.  
 						for ( int i = 0; ; i++ ) {
@@ -144,7 +145,7 @@ int main() {
 							if ( retcode == SQL_ERROR )
 								show_error();
 							if ( retcode == SQL_SUCCESS || retcode == SQL_SUCCESS_WITH_INFO )
-								wprintf( L"%d: %d %lS %d\n", i + 1, nID, szName, nLEVEL);
+								wprintf( L"%d: %d %lS %d\n", i + 1, nID, szName, nLEVEL );
 							else
 								break;
 						}
@@ -152,7 +153,7 @@ int main() {
 
 					else
 					{
-						HandleDiagnosticRecord( hstmt, SQL_HANDLE_DESC, retcode );
+						HandleDiagnosticRecord( hstmt, SQL_HANDLE_STMT, retcode );
 					}
 
 					// Process data  
@@ -169,4 +170,5 @@ int main() {
 		}
 		SQLFreeHandle( SQL_HANDLE_ENV, henv );
 	}
+	system( "pause" );
 }

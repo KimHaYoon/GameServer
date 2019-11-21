@@ -1,0 +1,14 @@
+Loop(true)
+{
+if (false == A_done)
+{
+Do(A);
+A_done = true;
+B_time = current_time() + 1000;
+}
+
+if(B_time <= current_time())
+{
+Do(B);
+B_time = MAX_INT;
+}

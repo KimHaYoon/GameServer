@@ -9,6 +9,9 @@ constexpr int MAX_STR_LEN = 50;
 
 #define SINGLE_ID		1
 
+#define NPC_ID_START	100000
+#define NUM_NPC			100000
+
 #define CS_UP		1
 #define CS_DOWN		2
 #define CS_LEFT		3

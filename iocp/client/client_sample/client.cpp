@@ -84,6 +84,7 @@ public:
 
 OBJECT avatar;
 OBJECT players[MAX_USER];
+OBJECT npcs[NUM_NPC];
 
 OBJECT white_tile;
 OBJECT black_tile;
@@ -105,6 +106,11 @@ void client_initialize()
 	for ( auto& pl : players )
 	{
 		pl = OBJECT{ *pieces, 128, 0, 64, 64 };
+	}
+
+	for ( auto& npc : npcs )
+	{
+		npc = OBJECT{ *pieces, 128, 0, 64, 64 };
 	}
 }
 
@@ -139,9 +145,8 @@ void ProcessPacket( char *ptr )
 			players[id].show();
 		}
 		else {
-			//npc[id - NPC_START].x = my_packet->x;
-			//npc[id - NPC_START].y = my_packet->y;
-			//npc[id - NPC_START].attr |= BOB_ATTR_VISIBLE;
+			npcs[id - NPC_ID_START].move( my_packet->x, my_packet->y );
+			npcs[id - NPC_ID_START].show();
 		}
 		break;
 	}
@@ -160,8 +165,7 @@ void ProcessPacket( char *ptr )
 			players[other_id].move( my_packet->x, my_packet->y );
 		}
 		else {
-			//npc[other_id - NPC_START].x = my_packet->x;
-			//npc[other_id - NPC_START].y = my_packet->y;
+			npcs[other_id - NPC_ID_START].move( my_packet->x, my_packet->y );
 		}
 		break;
 	}
@@ -177,7 +181,7 @@ void ProcessPacket( char *ptr )
 			players[other_id].hide();
 		}
 		else {
-			//		npc[other_id - NPC_START].attr &= ~BOB_ATTR_VISIBLE;
+			npcs[other_id - NPC_ID_START].hide();
 		}
 		break;
 	}
@@ -248,6 +252,11 @@ void client_main()
 	for ( auto& pl : players )
 	{
 		pl.draw();
+	}
+
+	for ( auto& npc : npcs)
+	{
+		npc.draw();
 	}
 }
 
