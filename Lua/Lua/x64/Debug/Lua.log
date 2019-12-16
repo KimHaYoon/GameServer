@@ -1,0 +1,5 @@
+﻿  소스.cpp
+d:\00.학교\2019 2학기\gameserver\lua\lua\소스.cpp(18): warning C4101: 'buf' :참조되지 않은 지역 변수입니다.
+d:\00.학교\2019 2학기\gameserver\lua\lua\소스.cpp(17): warning C4101: 'rows' :참조되지 않은 지역 변수입니다.
+d:\00.학교\2019 2학기\gameserver\lua\lua\소스.cpp(17): warning C4101: 'cols' :참조되지 않은 지역 변수입니다.
+  Lua.vcxproj -> D:\00.학교\2019 2학기\GameServer\Lua\x64\Debug\Lua.exe

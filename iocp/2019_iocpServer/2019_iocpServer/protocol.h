@@ -9,8 +9,8 @@ constexpr int MAX_STR_LEN = 50;
 
 #define SINGLE_ID		1
 
-#define NPC_ID_START	100000
-#define NUM_NPC			100000
+#define NPC_ID_START	10000
+#define NUM_NPC			100
 
 #define CS_UP		1
 #define CS_DOWN		2
@@ -21,6 +21,10 @@ constexpr int MAX_STR_LEN = 50;
 #define SC_PUT_PLAYER		2
 #define SC_REMOVE_PLAYER	3
 #define SC_POS				4
+#define SC_CHAT				5
+
+#define MAX_STR_SIZE 100
+
 
 #pragma pack(push ,1)	// 밑에 정의된 자료구조들을 1바이트단위로 패킹하라는 명령 이걸 사용하지않으면 구조체 사이즈를 컴파일러가 
 						// 임의로 조정한다  cpu중에 인티저변수를 읽을때 4바이트씩 4의 배수로 읽어야하는 cpu들이 있다.
@@ -51,6 +55,14 @@ struct sc_packet_put_player {
 	int id;
 	short x, y;
 	// 렌더링 정보, 종족, 정보, 성별, 착용아이템, 캐릭터 외형, 이름, 길드
+};
+
+struct sc_packet_chat
+{
+	char size;
+	char type;
+	int id;
+	char chat[50];
 };
 
 struct cs_packet_up {

@@ -1,0 +1,3 @@
+﻿  server.cpp
+d:\00.학교\2019 2학기\gameserver\iocp\2019_iocpserver\2019_iocpserver\server.cpp(350): error C2664: 'BOOL GetQueuedCompletionStatus(HANDLE,LPDWORD,PULONG_PTR,LPOVERLAPPED *,DWORD)': 인수 3을(를) 'PULONG'에서 'PULONG_PTR'(으)로 변환할 수 없습니다.
+  d:\00.학교\2019 2학기\gameserver\iocp\2019_iocpserver\2019_iocpserver\server.cpp(350): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
